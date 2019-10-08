@@ -43,35 +43,35 @@
         $nameError = "Palun sisesta oma eesnimi!";
       }//eesnime kontrolli lõpp
       if(isset($_POST["surName"]) and !empty($_POST["surName"])){
-			$surname = test_input($_POST["surName"]);
+			       $surname = test_input($_POST["surName"]);
       } else {
-      	$surnameError = "Palun sisesta oma perekonnanimi!";
+      	     $surnameError = "Palun sisesta oma perekonnanimi!";
       }
-      if(isset($_POST["gender"]) and !empty($_POST["gender"])){
-        $name = test_input($_POST["gender"]);
+      if(isset($_POST["gender"])){
+          $gender = intval($_POST["gender"]);
       } else {
-        $nameError = "Palun sisesta oma sugu!";
-
-
-
-
+          $genderError = "Palun märgi sugu!";
+      }
+      
+      
       //kontrollime, kas sünniaeg sisestati ja kas on korrektne
+      
     if(isset($_POST["birthDay"]) and !empty($_POST["birthDay"])){
-      $birthDay = intval($_POST["birthDay"]);
+            $birthDay = intval($_POST["birthDay"]);
     } else {
-     $birthDayError = "Palun vali sünnikuupäev!";
+            $birthDayError = "Palun vali sünnikuupäev!";
     }
   
     if(isset($_POST["birthMonth"]) and !empty($_POST["birthMonth"])){
-      $birthMonth = intval($_POST["birthMonth"]);
+            $birthMonth = intval($_POST["birthMonth"]);
     } else {
-      $birthMonthError = "Palun vali sünnikuu!";
+            $birthMonthError = "Palun vali sünnikuu!";
     }
   
     if(isset($_POST["birthYear"]) and !empty($_POST["birthYear"])){
-      $birthYear = intval($_POST["birthYear"]);
+            $birthYear = intval($_POST["birthYear"]);
     } else {
-      $birthYearError = "Palun vali sünniaasta!";
+            $birthYearError = "Palun vali sünniaasta!";
     }
   
     // kas on korrektne kuupäev, kui on, moodustame kuupäeva objekti
@@ -93,7 +93,7 @@
    	}
 
    	if (!isset($_POST["password"])or empty($_POST["password"])){
-   		$passwordError = "Palun sisesta parool!"
+   		$passwordError = "Palun sisesta parool!";
 
    	} else {
    			if(strlen($_POST["password"]) < 8){
@@ -196,6 +196,7 @@
 	  <input name="submitUserData" type="submit" value="Loo kasutaja"><span><?php echo $notice; ?></span>
 	</form>
 	<hr>
+  <p>Tagasi <a href="testpage.php">avalehele</a>!</p>
 		
   </body>
 </html> 
