@@ -70,6 +70,7 @@
   $photoNum = mt_rand(0, $photoCount -1);
   //echo $photoList[$photoNum];
   //  <img src="../photos/tlu_terra_600x400_1.jpg" alt="TLÜ Terra õppehoone">
+  $latestPublicPictureHTML = latestPicture(1);
   $randomImgHTML = '<img src="' .$photoDir .$photoList[$photoNum] .'" alt="Juhuslik foto">"';
 
   //sisselogimine
@@ -135,6 +136,8 @@
   <p>Loo <a href="newuser.php">kasutajakonto</a>!</p>
 
   <?php
+        echo $latestPublicPictureHTML;
+        echo $randomImgHTML;
   ?>
   
 

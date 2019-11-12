@@ -9,9 +9,9 @@
   
   //kui pole sisseloginud
   if(!isset($_SESSION["userId"])){
-	  //siis jõuga sisselogimise lehele
-	  header("Location: testpage.php");
-	  exit();
+	         //siis jõuga sisselogimise lehele
+	         header("Location: testpage.php");
+	         exit();
   }
   
   //väljalogimine
@@ -53,7 +53,7 @@
       } else {
           echo "File is not an image.";
           $uploadOk = 0;
-      }
+     }
   
   // Check if file already exists
   if (file_exists($target_file)) {
@@ -90,15 +90,15 @@
       $notice .= $myPic->savePicFile($pic_upload_dir_w600 .$filename);
       unset($myPic);
 
-
-      }//kas on liiga suur lõppeb
-
-      if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-          echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
-      } else {
-          echo "Sorry, there was an error uploading your file.";
-      }
-    }
+          if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
+                echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
+            } else {
+                    echo "Sorry, there was an error uploading your file.";
+        }//kas on liiga suur lõppeb
+        //salvestan info andmebaasi
+        
+       }
+     }
 
 
 
