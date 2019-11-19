@@ -108,7 +108,7 @@
 	  <input type="radio" name="privacy" value="2"><label>Sisseloginud kasutajatele</label>&nbsp;
 	  <input type="radio" name="privacy" value="3" checked><label>Isiklik</label>
       <br>
-	  <input name="submitPic" id="submitpic" type="submit" value="Lae pilt üles!"><span><?php echo $notice; ?></span>
+	  <input name="submitPic" type="submit" value="Lae pilt üles!"><span><?php echo $notice; ?></span>
 	</form>
 	<hr>
 	
