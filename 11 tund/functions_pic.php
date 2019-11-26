@@ -19,7 +19,7 @@
 		$html = null;
 		$skip = ($page - 1) * $limit;
 		$conn = new mysqli($GLOBALS["serverHost"], $GLOBALS["serverUsername"], $GLOBALS["serverPassword"], $GLOBALS["database"]);
-		$stmt = $conn->prepare("SELECT filename, alttext FROM vpphotos WHERE privacy<=? AND deleted IS NULL ORDER BY id DESC LIMIT 5, 5");
+		$stmt = $conn->prepare("SELECT filename, alttext FROM vpphotos WHERE privacy <=? AND deleted IS NULL ORDER BY id DESC LIMIT ?, ?");
 		echo $conn->error;
 		$stmt->bind_param("iii", $privacy, $skip, $limit);
 		$stmt->bind_result($fileNameFromDb, $altTextFromDb);

@@ -20,19 +20,19 @@
  
   $userName = $_SESSION["userFirstname"] ." " .$_SESSION["userLastname"];
 
-  $page = 1;
   $limit = 5;
+  $page = 1;
   $picCount = countPics(2);
 
-  if(isset($_GET["page"]) or $_GET["page"] < 1){
-  		$page = 1;
-
+  if(!isset($_GET["page"]) or $_GET["page"] < 1){
+  	$page = 1;
   } elseif(round($_GET["page"] - 1) * $limit >= $picCount){
-  	  $page = ceil($picCount / $limit);
+    $page = ceil($picCount / $limit);
   } else {
     $page = $_GET["page"];
 
   }
+
   
   $galleryHTML = readgalleryImages(2, $page, $limit);
   
@@ -56,7 +56,7 @@
     <!-- Sulgemisnupp-->
     <span id ="close" class="close">&times;</span>
     <!--pildikoht-->
-    <img id="modalImg" class="modal-content"> alt="galeriipilt">
+    <img id="modalImg" class="modal-content" alt="galeriipilt">
     <div id="caption" class="caption"></div>
     <div id="rating" class="modalcaption">
       <label><input id="rate1" name="rating" type="radio" value="1">1</label>
@@ -65,32 +65,35 @@
       <label><input id="rate4" name="rating" type="radio" value="4">4</label>
       <label><input id="rate5" name="rating" type="radio" value="5">5</label>
       <input type="button" value="Salvesta hinnang!" id="storeRating">
+      <br>
+      <p id="avgRating"></p>
     </div>
   </div>
 
-  <p>
-  <?php
-  	if($page > 1){
-  		echo '<a href ="?page=' .($page - 1) .'">Eelmine leht</a> - ';
+<p>
+	<?php
+	  	if($page > 1){
+	  		echo '<a href="?page=' .($page - 1) .'">Eelmine leht</a> | ';
 
-  	} else {
-  		echo "<span>Eelmine leht</span> -";
-  	}
-  	if($page *$limit <= $picCount){
-  		echo '<a href ="?page=' .($page + 1) .'">Järgmine leht</a> - ';
-  	} else {
-  		echo "<span>Eelmine leht</span> -";
-  	}
-  ?>
+	  	} else {
+	  		echo "<span>Eelmine leht</span> |";
+	  	}
+	  	if($page *$limit <= $picCount){
+	  		echo '<a href ="?page=' .($page + 1) .'">Järgmine leht</a> - ';
+	  	} else {
+	  		echo "<span>Eelmine leht</span> -";
+	  	}
+  	?>
 
-  </p>
+</p>
 
-    
+
+ </p>
    <div id="gallery">
     <?php
       echo $galleryHTML;
-
-    ?>
-	</div>
+	?>
+ </div>
+ <hr>
 </body>
 </html>
